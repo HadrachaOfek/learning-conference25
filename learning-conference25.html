@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>כנס מערך הדרכה</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #253439;
+    }
+
+    section {
+      padding: 40px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+      background-color: #253439; /* צבע רקע מאחורי התמונה */
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* רקע למחשב (ברירת מחדל) */
+    section:nth-of-type(1) {
+      background: #253439 url('1.png') center/cover no-repeat;
+    }
+
+    section:nth-of-type(2) {
+      background: #253439 url('2.png') center/cover no-repeat;
+    }
+
+    section:nth-of-type(3) {
+      background: #253439 url('3.png') center/cover no-repeat;
+    }
+
+    section:nth-of-type(4) {
+      background: #253439 url('4.png') center/cover no-repeat;
+    }
+
+    section:nth-of-type(5) {
+      background: #253439 url('5.png') center/cover no-repeat;
+    }
+
+    section:nth-of-type(6) {
+      background: #253439 url('6.png') center/cover no-repeat;
+    }
+
+    section:nth-of-type(7) {
+      background: #253439 url('7.png') center/cover no-repeat;
+    }
+
+    /* עיצוב לרוחב מסך קטן (טלפון) */
+    @media (max-width: 767px) {
+      section:nth-of-type(1) {
+        background: #253439 url('m1.png') center/cover no-repeat;
+      }
+
+      section:nth-of-type(2) {
+        background: #253439 url('m2.png') center/cover no-repeat;
+      }
+
+      section:nth-of-type(3) {
+        background: #253439 url('m3.png') center/cover no-repeat;
+      }
+
+      section:nth-of-type(4) {
+        background: #253439 url('m4.png') center/cover no-repeat;
+      }
+
+      section:nth-of-type(5) {
+        background: #253439 url('m5.png') center/cover no-repeat;
+      }
+
+      section:nth-of-type(6) {
+        background: #253439 url('m6.png') center/cover no-repeat;
+      }
+
+      section:nth-of-type(7) {
+        background: #253439 url('m7.png') center/cover no-repeat;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section></section>
+<section></section>
+<section></section>
+<section></section>
+<section></section>
+<section></section>
+<section></section>
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
