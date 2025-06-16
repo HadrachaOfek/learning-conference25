@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>כנס מערך הדרכה</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -17,23 +21,13 @@
     }
 
     section {
-      position: relative;
-      width: 100%;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #253439;
       overflow: hidden;
-    }
-
-    section img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    /* אנימציה */
-    section {
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 1s ease, transform 1s ease;
@@ -43,17 +37,68 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    section picture,
+    section img {
+      width: 100%;
+      height: 100%;
+    }
+
+    section img {
+      object-fit: contain;
+    }
   </style>
 </head>
 <body>
 
-<section><img src="1.png" alt="שקף 1"></section>
-<section><img src="2.png" alt="שקף 2"></section>
-<section><img src="3.png" alt="שקף 3"></section>
-<section><img src="4.png" alt="שקף 4"></section>
-<section><img src="5.png" alt="שקף 5"></section>
-<section><img src="6.png" alt="שקף 6"></section>
-<section><img src="7.png" alt="שקף 7"></section>
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m1.png" />
+    <img src="1.png" alt="שקף 1" />
+  </picture>
+</section>
+
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m2.png" />
+    <img src="2.png" alt="שקף 2" />
+  </picture>
+</section>
+
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m3.png" />
+    <img src="3.png" alt="שקף 3" />
+  </picture>
+</section>
+
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m4.png" />
+    <img src="4.png" alt="שקף 4" />
+  </picture>
+</section>
+
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m5.png" />
+    <img src="5.png" alt="שקף 5" />
+  </picture>
+</section>
+
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m6.png" />
+    <img src="6.png" alt="שקף 6" />
+  </picture>
+</section>
+
+<section>
+  <picture>
+    <source media="(max-width: 767px)" srcset="m7.png" />
+    <img src="7.png" alt="שקף 7" />
+  </picture>
+</section>
 
 <script>
   const sections = document.querySelectorAll("section");
