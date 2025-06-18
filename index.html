@@ -17,7 +17,7 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #253439;
+      background: linear-gradient(to bottom, #000000 0%, #0a1c6b 50%, #2668a4 100%);
     }
 
     section {
@@ -26,13 +26,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #253439;
       overflow: hidden;
-      padding: 0;
-      margin: 0;
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(30px);
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out;
     }
 
     section.visible {
@@ -48,18 +45,19 @@
     }
 
     section img {
-      object-fit: cover; /* שומר על מילוי מסך בלי רווחים */
+      object-fit: cover;
     }
 
     @media (max-width: 767px) {
       section img {
-        object-fit: cover; /* גם במובייל – מילוי מלא */
+        object-fit: cover;
       }
     }
   </style>
 </head>
 <body>
 
+<!-- שקף 1 -->
 <section>
   <picture>
     <source media="(max-width: 767px)" srcset="m1.png" />
@@ -67,6 +65,7 @@
   </picture>
 </section>
 
+<!-- שקף 2 -->
 <section>
   <picture>
     <source media="(max-width: 767px)" srcset="m2.png" />
@@ -74,6 +73,7 @@
   </picture>
 </section>
 
+<!-- שקף 3 -->
 <section>
   <picture>
     <source media="(max-width: 767px)" srcset="m3.png" />
@@ -81,6 +81,7 @@
   </picture>
 </section>
 
+<!-- שקף 4 -->
 <section>
   <picture>
     <source media="(max-width: 767px)" srcset="m4.png" />
@@ -88,24 +89,11 @@
   </picture>
 </section>
 
+<!-- שקף 5 -->
 <section>
   <picture>
     <source media="(max-width: 767px)" srcset="m5.png" />
     <img src="5.png" alt="שקף 5" />
-  </picture>
-</section>
-
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m6.png" />
-    <img src="6.png" alt="שקף 6" />
-  </picture>
-</section>
-
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m7.png" />
-    <img src="7.png" alt="שקף 7" />
   </picture>
 </section>
 
@@ -120,7 +108,8 @@
     });
   }, { threshold: 0.1 });
 
-  sections.forEach(section => {
+  sections.forEach((section, index) => {
+    section.style.transitionDelay = `${index * 0.2}s`;
     observer.observe(section);
   });
 </script>
