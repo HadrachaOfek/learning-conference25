@@ -28,7 +28,7 @@
       align-items: center;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(30px);
+      transform: translateY(-30px); /* מופיע מלמעלה */
       transition: opacity 1.2s ease-out, transform 1.2s ease-out;
     }
 
@@ -57,62 +57,62 @@
 </head>
 <body>
 
-<!-- שקף 1 -->
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m1.png" />
-    <img src="1.png" alt="שקף 1" />
-  </picture>
-</section>
+  <!-- שקף 1 -->
+  <section>
+    <picture>
+      <source media="(max-width: 767px)" srcset="m1.png" />
+      <img src="1.png" alt="שקף 1" />
+    </picture>
+  </section>
 
-<!-- שקף 2 -->
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m2.png" />
-    <img src="2.png" alt="שקף 2" />
-  </picture>
-</section>
+  <!-- שקף 2 -->
+  <section>
+    <picture>
+      <source media="(max-width: 767px)" srcset="m2.png" />
+      <img src="2.png" alt="שקף 2" />
+    </picture>
+  </section>
 
-<!-- שקף 3 -->
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m3.png" />
-    <img src="3.png" alt="שקף 3" />
-  </picture>
-</section>
+  <!-- שקף 3 -->
+  <section>
+    <picture>
+      <source media="(max-width: 767px)" srcset="m3.png" />
+      <img src="3.png" alt="שקף 3" />
+    </picture>
+  </section>
 
-<!-- שקף 4 -->
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m4.png" />
-    <img src="4.png" alt="שקף 4" />
-  </picture>
-</section>
+  <!-- שקף 4 -->
+  <section>
+    <picture>
+      <source media="(max-width: 767px)" srcset="m4.png" />
+      <img src="4.png" alt="שקף 4" />
+    </picture>
+  </section>
 
-<!-- שקף 5 -->
-<section>
-  <picture>
-    <source media="(max-width: 767px)" srcset="m5.png" />
-    <img src="5.png" alt="שקף 5" />
-  </picture>
-</section>
+  <!-- שקף 5 -->
+  <section>
+    <picture>
+      <source media="(max-width: 767px)" srcset="m5.png" />
+      <img src="5.png" alt="שקף 5" />
+    </picture>
+  </section>
 
-<script>
-  const sections = document.querySelectorAll("section");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
+  <script>
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach((section, index) => {
+      section.style.transitionDelay = `${index * 0.2}s`;
+      observer.observe(section);
     });
-  }, { threshold: 0.1 });
-
-  sections.forEach((section, index) => {
-    section.style.transitionDelay = `${index * 0.2}s`;
-    observer.observe(section);
-  });
-</script>
+  </script>
 
 </body>
 </html>
