@@ -45,15 +45,8 @@
     }
 
     section img {
-      object-fit: contain;        /* שומר על כל התמונה */
-      object-position: center;    /* ממורכז תמיד */
-    }
-
-    @media (max-width: 767px) {
-      section img {
-        object-fit: cover;        /* מילוי מסך מלא במובייל */
-        object-position: center;  /* גם כאן ממורכז */
-      }
+      object-fit: cover;         /* ✅ חזרנו ל-cover */
+      object-position: center;   /* מרכז התמונה */
     }
   </style>
 </head>
