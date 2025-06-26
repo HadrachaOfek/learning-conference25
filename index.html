@@ -28,7 +28,7 @@
       align-items: center;
       overflow: hidden;
       opacity: 0;
-      transform: translateY(-30px); /* מופיע מלמעלה */
+      transform: translateY(-30px);
       transition: opacity 1.2s ease-out, transform 1.2s ease-out;
     }
 
@@ -45,19 +45,21 @@
     }
 
     section img {
-      object-fit: cover;
+      object-fit: contain;        /* שומר על כל התמונה */
+      object-position: center;    /* ממורכז תמיד */
     }
 
     @media (max-width: 767px) {
       section img {
-        object-fit: cover;
+        object-fit: cover;        /* מילוי מסך מלא במובייל */
+        object-position: center;  /* גם כאן ממורכז */
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- שקף 1 -->
+  <!-- שקפים -->
   <section>
     <picture>
       <source media="(max-width: 767px)" srcset="m1.png" />
@@ -65,7 +67,6 @@
     </picture>
   </section>
 
-  <!-- שקף 2 -->
   <section>
     <picture>
       <source media="(max-width: 767px)" srcset="m2.png" />
@@ -73,7 +74,6 @@
     </picture>
   </section>
 
-  <!-- שקף 3 -->
   <section>
     <picture>
       <source media="(max-width: 767px)" srcset="m3.png" />
@@ -81,7 +81,6 @@
     </picture>
   </section>
 
-  <!-- שקף 4 -->
   <section>
     <picture>
       <source media="(max-width: 767px)" srcset="m4.png" />
@@ -89,7 +88,6 @@
     </picture>
   </section>
 
-  <!-- שקף 5 -->
   <section>
     <picture>
       <source media="(max-width: 767px)" srcset="m5.png" />
